@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
       context: .
       args:
-      - GTNH_VERSION=${GTNH_VERSION}
+        - GTNH_VERSION=${GTNH_VERSION}
     container_name: GregTechNewHorizons
     image: officepi:5000/gtnh:${GTNH_VERSION}
     init: true
@@ -13,14 +13,14 @@ services:
     tty: true
     user: "minecraft:minecraft"
     volumes:
-    - ${PWD}/server.properties:/app/server.properties
-    - ${PWD}/whitelist.json:/app/whitelist.json
-    - ${PWD}/usercache.json:/app/usercache.json
-    - ${PWD}/ops.json:/app/ops.json
-    - ${PWD}/banned-players.json:/app/banned-players.json
-    - ${PWD}/crash-reports:/app/crash-reports
-    - ${PWD}/heapdumps:/e2ee/heapdumps
-    - ${PWD}/logs:/app/logs
-    - ${PWD}/World:/app/World
+      - ${PWD}/server.properties:/app/server.properties
+      - ${PWD}/whitelist.json:/app/whitelist.json
+      - ${PWD}/usercache.json:/app/usercache.json
+      - ${PWD}/ops.json:/app/ops.json
+      - ${PWD}/banned-players.json:/app/banned-players.json
+      - ${PWD}/crash-reports:/app/crash-reports
+      - ${PWD}/heapdumps:/app/heapdumps
+      - ${PWD}/logs:/app/logs
+      - ${PWD}/World:/app/World
     ports:
-      - 22000:25565
+      - "22000:25565"
