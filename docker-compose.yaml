@@ -21,6 +21,6 @@ services:
       - ${PWD}/crash-reports:/app/crash-reports
       - ${PWD}/heapdumps:/app/heapdumps
       - ${PWD}/logs:/app/logs
-      - ${PWD}/World:/app/World
+      - ${PWD}/world:/app/world
     ports:
       - "22000:25565"
