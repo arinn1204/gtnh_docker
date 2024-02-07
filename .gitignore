@@ -1,0 +1,9 @@
+*.zip
+logs/*
+crash-reports/*
+/saves/*
+/World/*
+/config/*
+
+/*json
+/*.properties
