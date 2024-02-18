@@ -22,5 +22,7 @@ services:
       - ${PWD}/heapdumps:/app/heapdumps
       - ${PWD}/logs:/app/logs
       - ${PWD}/world:/app/world
+      - ${PWD}/backups:/app/backups
+      - ${PWD}/serverutilities.cfg:/app/serverutilities/serverutilities.cfg
     ports:
       - "22000:25565"

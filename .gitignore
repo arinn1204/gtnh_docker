@@ -4,6 +4,7 @@ crash-reports/*
 /saves/*
 /world/*
 /config/*
+/backups/*
 
 /*json
 /*.properties
