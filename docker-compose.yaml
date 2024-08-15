@@ -23,7 +23,6 @@ services:
       - ${PWD}/world:/app/world
       - ${PWD}/backups:/app/backups
       - ${PWD}/serverutilities.cfg:/app/serverutilities/serverutilities.cfg
-      - ${PWD}/JourneyMapServer:/app/config/JourneyMapServer
     ports:
       - "22000:25565"
       - "9001:9001"
