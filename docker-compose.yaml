@@ -1,13 +1,12 @@
-version: "3.8"
 services:
   gtnh:
     build:
       dockerfile: Dockerfile
       context: .
       args:
-        - GTNH_VERSION=${GTNH_VERSION}
+        - GTNH_VERSION=2.6.1
     container_name: GregTechNewHorizons
-    image: officepi:5000/gtnh:${GTNH_VERSION}
+    image: gtnh:2.6.1
     init: true
     stdin_open: true
     tty: true
@@ -27,3 +26,4 @@ services:
       - ${PWD}/JourneyMapServer:/app/config/JourneyMapServer
     ports:
       - "22000:25565"
+      - "9001:9001"

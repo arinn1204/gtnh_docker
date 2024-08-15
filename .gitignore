@@ -8,3 +8,5 @@ crash-reports/*
 
 /*json
 /*.properties
+additional/
+JourneyMapServer/
