@@ -1,7 +1,7 @@
 services:
   gtnh:
     build:
-      dockerfile: Dockerfile
+      dockerfile: graal.dockerfile
       context: .
       args:
         - GTNH_VERSION=2.6.1

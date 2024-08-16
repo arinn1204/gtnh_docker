@@ -15,14 +15,12 @@ RUN bsdtar zvfx server.zip
 RUN sed -i 's/eula=false/eula=true/' /app/eula.txt \
     && chmod +x /app/startserver-java9.sh
 
-RUN rm -f mods/JourneyMapServer*.jar
-
-RUN groupadd -g 1001 minecraft && useradd -g 1001 -u 1001 -M -d /app minecraft
-RUN chown -R minecraft:minecraft /app
-
 COPY /additional/mods /app/mods
 COPY /additional/config /app/config
 COPY /javaargs.txt /app/java9args.txt
+
+RUN groupadd -g 1001 minecraft && useradd -g 1001 -u 1001 -M -d /app minecraft
+RUN chown -R minecraft:minecraft /app
 
 USER minecraft:minecraft
 
