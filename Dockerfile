@@ -25,7 +25,7 @@ RUN if [[ "$BASE_IMAGE" == amazoncorretto* ]]; then \
 # Download and extract the server pack
 ARG GTNH_VERSION
 RUN curl "http://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_${GTNH_VERSION}_Server_Java_17-21.zip" -o server.zip
-RUN bsdtar zvfx server.zip
+RUN bsdtar zvfx server.zip && rm server.zip
 
 # Configure server
 RUN sed -i 's/eula=false/eula=true/' /app/eula.txt && \
@@ -36,6 +36,13 @@ COPY /additional/mods /app/mods
 COPY /additional/config /app/config
 COPY /additional/app /app
 COPY /javaargs.txt /app/java9args.txt
+
+COPY /additional/app/server.properties /app/server.properties
+COPY /additional/app/whitelist.json /app/whitelist.json
+COPY /additional/app/usercache.json /app/usercache.json
+COPY /additional/app/ops.json /app/ops.json
+COPY /additional/app/banned-players.json /app/banned-players.json
+COPY /additional/app/serverutilities /app/serverutilities
 
 # Set up user
 RUN groupadd -g 1001 minecraft && \

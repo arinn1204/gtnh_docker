@@ -3,7 +3,16 @@
 
 set dotenv-load
 
-build:
+init:
+    @mkdir backups crash-reports heapdumps logs world 2>/dev/null || printf ''
+    @chown -R $USER:minecraft backups crash-reports heapdumps logs world
+    @chmod -R g+rwx backups
+    @chmod -R g+rwx crash-reports
+    @chmod -R g+rwx heapdumps 
+    @chmod -R g+rwx logs 
+    @chmod -R g+rwx world
+
+build: init
     docker compose build
 
 down:
