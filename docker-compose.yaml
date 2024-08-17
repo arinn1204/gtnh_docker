@@ -1,0 +1,23 @@
+services:
+  gtnh:
+    build:
+      context: .
+      args:
+        - GTNH_VERSION=${GTNH_VERSION}
+        - BASE_IMAGE=${BASE_IMAGE}
+      dockerfile: Dockerfile
+    container_name: GregTechNewHorizons
+    image: gtnh:${GTNH_VERSION}-${GTNH_IMAGE_JDK:-graal}
+    init: true
+    stdin_open: true
+    tty: true
+    user: "minecraft:minecraft"
+    volumes:
+      - ${PWD}/crash-reports:/app/crash-reports
+      - ${PWD}/heapdumps:/app/heapdumps
+      - ${PWD}/logs:/app/logs
+      - ${PWD}/world:/app/world
+      - ${PWD}/backups:/app/backups
+    ports:
+      - "22000:25565"
+      - "9001:9001"
