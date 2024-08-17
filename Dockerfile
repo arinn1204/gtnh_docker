@@ -37,13 +37,6 @@ COPY /additional/config /app/config
 COPY /additional/app /app
 COPY /javaargs.txt /app/java9args.txt
 
-COPY /additional/app/server.properties /app/server.properties
-COPY /additional/app/whitelist.json /app/whitelist.json
-COPY /additional/app/usercache.json /app/usercache.json
-COPY /additional/app/ops.json /app/ops.json
-COPY /additional/app/banned-players.json /app/banned-players.json
-COPY /additional/app/serverutilities /app/serverutilities
-
 # Set up user
 RUN groupadd -g 1001 minecraft && \
     useradd -g 1001 -u 1001 -M -d /app minecraft && \
