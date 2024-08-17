@@ -3,7 +3,7 @@ FROM amazoncorretto:21-al2-jdk
 WORKDIR /app
 
 RUN yum -y update \
-    && yum -y install unzip gzip tar vim find shadow-utils.x86_64 \
+    && yum -y install unzip gzip tar vim find shadow-utils \
     && yum clean all \
     && rm -rf /var/cache/yum
 
@@ -16,6 +16,7 @@ RUN sed -i 's/eula=false/eula=true/' /app/eula.txt \
 
 COPY /additional/mods /app/mods
 COPY /additional/config /app/config
+COPY /additional/app /app
 COPY /javaargs.txt /app/java9args.txt
 
 RUN groupadd -g 1001 minecraft && useradd -g 1001 -u 1001 -M -d /app minecraft

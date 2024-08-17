@@ -4,25 +4,19 @@ services:
       dockerfile: graal.dockerfile
       context: .
       args:
-        - GTNH_VERSION=2.6.1
+        - GTNH_VERSION=${GTNH_VERSION}
     container_name: GregTechNewHorizons
-    image: gtnh:2.6.1
+    image: gtnh:graal-${GTNH_VERSION}
     init: true
     stdin_open: true
     tty: true
     user: "minecraft:minecraft"
     volumes:
-      - ${PWD}/server.properties:/app/server.properties
-      - ${PWD}/whitelist.json:/app/whitelist.json
-      - ${PWD}/usercache.json:/app/usercache.json
-      - ${PWD}/ops.json:/app/ops.json
-      - ${PWD}/banned-players.json:/app/banned-players.json
       - ${PWD}/crash-reports:/app/crash-reports
       - ${PWD}/heapdumps:/app/heapdumps
       - ${PWD}/logs:/app/logs
       - ${PWD}/world:/app/world
       - ${PWD}/backups:/app/backups
-      - ${PWD}/serverutilities.cfg:/app/serverutilities/serverutilities.cfg
     ports:
       - "22000:25565"
       - "9001:9001"

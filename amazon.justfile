@@ -4,6 +4,9 @@ build:
 down:
     docker compose -f docker-compose-amazon.yaml down
 
+copy source dest filename:
+    docker compose -f docker-compose-amazon.yaml cp gtnh:{{source}}/{{filename}} {{dest}}/{{filename}}
+
 restart: build down
     docker compose -f docker-compose-amazon.yaml up -d
 

@@ -1,5 +1,5 @@
 build:
-    docker compose build
+    docker compose -f graal.dockerfile build
 
 down:
     docker compose down

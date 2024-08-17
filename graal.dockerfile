@@ -11,12 +11,12 @@ ARG GTNH_VERSION=2.6.1
 RUN curl "http://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_${GTNH_VERSION}_Server_Java_17-21.zip" -o server.zip
 RUN bsdtar zvfx server.zip
 
-
 RUN sed -i 's/eula=false/eula=true/' /app/eula.txt \
     && chmod +x /app/startserver-java9.sh
 
 COPY /additional/mods /app/mods
 COPY /additional/config /app/config
+COPY /additional/app /app
 COPY /javaargs.txt /app/java9args.txt
 
 RUN groupadd -g 1001 minecraft && useradd -g 1001 -u 1001 -M -d /app minecraft
