@@ -12,7 +12,7 @@ init:
     @chmod -R g+rwx logs 
     @chmod -R g+rwx world
 
-build: init
+build: 
     docker compose build
 
 down:

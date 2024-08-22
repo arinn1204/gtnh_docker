@@ -10,12 +10,12 @@ WORKDIR /app
 # Install dependencies using the appropriate package manager
 RUN if [[ "$BASE_IMAGE" == amazoncorretto* ]]; then \
         yum -y update && \
-        yum -y install bsdtar vim find shadow-utils && \
+        yum -y install unzip vim find shadow-utils && \
         yum clean all && \
         rm -rf /var/cache/yum; \
     elif [[ "$BASE_IMAGE" == ghcr.io/graalvm/jdk-community* ]]; then \
         microdnf update && \
-        microdnf install --nodocs bsdtar vim findutils && \
+        microdnf install --nodocs unzip vim findutils && \
         microdnf clean all && \
         rm -rf /var/cache/yum; \
     else \
@@ -25,7 +25,7 @@ RUN if [[ "$BASE_IMAGE" == amazoncorretto* ]]; then \
 # Download and extract the server pack
 ARG GTNH_VERSION
 RUN curl "http://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_${GTNH_VERSION}_Server_Java_17-21.zip" -o server.zip
-RUN bsdtar zvfx server.zip && rm server.zip
+RUN unzip server.zip
 
 # Configure server
 RUN sed -i 's/eula=false/eula=true/' /app/eula.txt && \
