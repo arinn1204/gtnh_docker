@@ -24,7 +24,7 @@ RUN if [[ "$BASE_IMAGE" == amazoncorretto* ]]; then \
 
 # Download and extract the server pack
 ARG GTNH_VERSION
-RUN curl "http://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_${GTNH_VERSION}_Server_Java_17-21.zip" -o server.zip
+RUN curl -fSL "http://downloads.gtnewhorizons.com/ServerPacks/GT_New_Horizons_${GTNH_VERSION}_Server_Java_17-21.zip" -o server.zip
 RUN unzip server.zip
 
 # Configure server
