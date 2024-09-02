@@ -10,3 +10,4 @@ crash-reports/*
 /*.properties
 additional/
 JourneyMapServer/
+/.env
