@@ -32,10 +32,10 @@ RUN sed -i 's/eula=false/eula=true/' /app/eula.txt && \
     chmod +x /app/startserver-java9.sh
 
 # Copy additional files
-COPY /additional/mods /app/mods
-COPY /additional/config /app/config
 COPY /additional/app /app
-COPY /javaargs.txt /app/java9args.txt
+COPY /additional/config /app/config
+COPY /additional/mods /app/mods
+
 
 # Set up user
 RUN groupadd -g 1001 minecraft && \

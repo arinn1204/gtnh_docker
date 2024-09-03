@@ -12,11 +12,12 @@ services:
     stdin_open: true
     tty: true
     user: "minecraft:minecraft"
+    restart: unless-stopped
     volumes:
       - ${PWD}/crash-reports:/app/crash-reports
       - ${PWD}/heapdumps:/app/heapdumps
       - ${PWD}/logs:/app/logs
-      - ${PWD}/world:/app/World
+      - ${PWD}/world:/app/world
       - ${PWD}/backups:/app/backups
     ports:
       - "22000:25565"
